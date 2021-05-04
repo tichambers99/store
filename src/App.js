@@ -4,12 +4,14 @@ import TopMenu from './components/TopMenu'
 import Home from './components/Home'
 import Cart from './components/Cart'
 import Product from './components/Product'
+import Footer from './components/Footer'
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 
+import Container from '@material-ui/core/Container'
 function App() {
   return (
     <CartProvider>
@@ -17,16 +19,19 @@ function App() {
       <Router>
         <TopMenu />
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route extract path="/product">
-            <Product />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
+          <div className="container">
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route extract path="/product">
+              <Product />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            </div>
         </Switch>
+        <Footer />
       </Router>
     </div>
     </CartProvider>

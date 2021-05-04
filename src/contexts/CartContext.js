@@ -11,21 +11,23 @@ export function CartProvider(props){
   //   setCarts(newArr);
   // }
 
-  const addToCart = (product) => {
+  const addToCart = (product, number) => {
     let check = false;
     let newArr = [];
     for(let cart of carts){
       if(cart.id === product.id){
         check = true;
         // if click add to cart more time, it increase number of product
-        cart.number = cart.number + 1;
+        cart.number = cart.number + number;
       }
       
       newArr.push(cart);
     }
     if(check === true){
       setCarts(newArr)
-    }else setCarts([...carts, {...product, number: 1}])
+    }else setCarts([...carts, {...product, number: number}])
+    alert('Đạt hàng thành công');
+    console.log(carts);
   }
 
   const deleteItem = (product) => {
